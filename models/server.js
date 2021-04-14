@@ -25,7 +25,15 @@ class Server{
     middlewares(){
 
         //CORS
-       this.app.use( cors()) ;
+       this.app.use( cors({
+
+        origin: '*',
+      
+        methods: ['POST','PUT','GET','DELETE','OPTIONS'],
+      
+        allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept'
+      
+      })) ;
 
        //Lectura y parseo del body
        this.app.use(express.json());
